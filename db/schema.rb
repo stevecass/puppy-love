@@ -49,10 +49,10 @@ ActiveRecord::Schema.define(version: 20140919200744) do
   end
 
   create_table "owners", force: true do |t|
-    t.string   "owner_email"
+    t.string   "email"
     t.string   "password_digest"
-    t.string   "owner_gender"
-    t.date     "owner_birthday"
+    t.string   "gender"
+    t.date     "birthday"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
