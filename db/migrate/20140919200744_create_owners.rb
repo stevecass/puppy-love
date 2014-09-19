@@ -1,10 +1,10 @@
 class CreateOwners < ActiveRecord::Migration
   def change
     create_table :owners do |t|
-      t.string :owner_email
+      t.string :email
       t.string :password_digest
-      t.string :owner_gender
-      t.date :owner_birthday
+      t.string :gender
+      t.date :birthday
 
       t.timestamps
     end
