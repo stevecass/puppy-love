@@ -1,5 +1,5 @@
 == README
-[Build Status](https://travis-ci.org/great-horned-owls-2014/puppy-love.svg?branch=master)
+{Build Status}[https://travis-ci.org/great-horned-owls-2014/puppy-love.svg?branch=master]
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
