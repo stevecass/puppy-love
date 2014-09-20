@@ -1,0 +1,13 @@
+<div id="content">
+Edit your profile:<br>
+<%= form_for @dog do |f| %>
+  <%= f.text_field :gender %><br>
+  <%= f.text_field :breed %><br>
+  <%= f.text_field :size %><br>
+  <%= f.text_field :birthday %><br>
+  <%= f.text_field :location %><br>
+  <%= f.text_field :tagline %><br>
+  <%= f.text_area :bio %><br>
+  <%= f.submit %>
+<% end %>
+</div>
