@@ -11,6 +11,13 @@ class WelcomeController < ApplicationController
   def auth
     #process login form and authorize user
     #set session info on auth
+    #redirect to welcome#home on auth
+    #either redirect to welcome#index on auth fail, or popup 
+    #an error message on the form.
+  end
+
+  def home
+    #Should go to a dogs homepage once logged in.
   end
 
   def logout
