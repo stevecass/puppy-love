@@ -6,9 +6,19 @@ class WelcomeController < ApplicationController
 
   def login
     #user login form
+    render :layout => false
   end
 
   def auth
+    @owner = Owner.find_by(email: params[:email]).try(:authenticate, params[:password])
+    puts @owner
+    if @owner
+      session[:current_user] = @owner.id  
+      redirect_to @owner.dog
+    else
+      flash[:login_error] = "Invalid username/password combination"
+      redirect_to '/'
+    end
     #process login form and authorize user
     #set session info on auth
     #redirect to welcome#home on auth
