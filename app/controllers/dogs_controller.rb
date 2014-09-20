@@ -13,20 +13,48 @@ class DogsController < ApplicationController
   end
 
   def new
-    #return signup form to create an account?
-    # Should this go here or in the owner controller?
+    @dog = Dog.new
+  end
+
+  def create
+    @dog = Dog.new(dog_params)
+    @dog.save
+    redirect_to @dog
+    
   end
 
   def edit  
+    @dog = Dog.find(params[:id].to_i)
     #form to edit your own profile
   end
 
   def update
+    @dog = Dog.find(params[:id].to_i)
+    if @dog.update(dog_params)
+      redirect_to @dog
+    else
+      render 'edit'
+    end
     #update your profile
   end
 
   def destroy
     #delete your own account
+  end
+
+  private
+  def dog_params
+    params.require(:dog).permit(
+      :gender,
+      :breed,
+      :size,
+      :birthday,
+      :location,
+      :tagline,
+      :bio,
+      :photo_url,
+      :name
+    )
   end
 
 end

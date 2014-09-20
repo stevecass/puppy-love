@@ -1,0 +1,32 @@
+<div id="content">
+Edit your profile<br>
+<%= form_for @dog do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %><br>
+  
+  <%= f.label :gender %>
+  <%= f.text_field :gender %><br>
+
+  <%= f.label :breed %>
+  <%= f.text_field :breed %><br>
+
+  <%= f.label :size %> 
+  <%= f.text_field :size %><br>
+
+  <%= f.label :birthday %>
+  <%= f.text_field :birthday %><br>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %><br>
+
+  <%= f.label :tagline %>
+  <%= f.text_field :tagline %><br>
+
+  <%= f.label :bio %> 
+  <%= f.text_area :bio %><br>
+
+  <%= f.label :photo_url %>
+  <%= f.text_field :photo_url %>
+  <%= f.submit %>
+<% end %>
+</div>
