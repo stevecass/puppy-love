@@ -19,6 +19,8 @@ class DogsController < ApplicationController
   def create
     @dog = Dog.new(dog_params)
     @dog.save
+    @owner = Owner.find(session[:current_user])
+    @owner.dogs << @dog
     redirect_to @dog
     
   end
