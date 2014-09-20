@@ -8,6 +8,7 @@ class DogsController < ApplicationController
   end
 
   def show
+    @dog = Dog.find(params[:id].to_i)
     # Should query for an individual dogs profile, and display that.
   end
 
