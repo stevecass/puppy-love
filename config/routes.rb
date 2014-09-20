@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'login' => 'welcome#login' 
   post 'auth' => 'welcome#auth'
+  get 'logout' => 'welcome#logout'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

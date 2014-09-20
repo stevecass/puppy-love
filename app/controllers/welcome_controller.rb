@@ -28,9 +28,12 @@ class WelcomeController < ApplicationController
 
   def home
     #Should go to a dogs homepage once logged in.
+    #Victor's note - I skipped this route since I should be able to redirect straight to the dog's profile once i get there
   end
 
   def logout
+    session.clear
+    redirect_to '/'
     #clear the current session
     #redirect to welcome#index
   end
