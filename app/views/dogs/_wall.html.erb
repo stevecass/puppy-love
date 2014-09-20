@@ -1,0 +1,18 @@
+<ul class="comments">
+	<% @dog.comments.each do |comment|%>
+		<li id="level1"><%=render 'comment', :comment => comment %></li>
+		<% if comment.comments %>
+			<%comment.comments.each do |comment|%>
+				<li id="level2"><%=comment.content%></li>
+			<% end %>
+		<% end %>
+	<% end %>
+<ul>
+
+<br>
+<form id="newcomments" action="/comments" method="post">
+  <input type="hidden" name ="dog_id" value="<%= @dog.id %>" requried>
+  <label for="comment"></label>
+  <input type="text" size="121" name ="content" placeholder="Write on <%=@dog.name%>'s wall!" requried>
+<input type="submit" value="Comment!">
+</form>
