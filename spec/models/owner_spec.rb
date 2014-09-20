@@ -1,11 +1,11 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-describe Owner, type: :model do
+# describe Owner, type: :model do
 
-  it "should have an email" do
-    pending
-  end
+#   it "should have an email" do
+#     pending
+#   end
 
 
 
-end
+# end
