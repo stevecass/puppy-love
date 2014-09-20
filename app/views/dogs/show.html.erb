@@ -1,15 +1,24 @@
 <div id="profile">
-  <h1><%= @dog.name %>'s Profile</h1>
-  <img class="profile-pic" src="<%= @dog.photo_url %>" alt="<%= @dog.name %>'s Pic">
-  <ul>
-      <li>"<%= @dog.tagline %>"</li>
-      <li><%= @dog.gender.upcase %></li>
-      <li><%= @dog.birthday %></li>
-      <li><%= @dog.size.upcase %></li>
-      <li><%= @dog.breed.upcase %></li>
-      <li><%= @dog.location.upcase %></li>
-      <li><%= @dog.bio %></li>
-      
-  </ul>
+
+  <div class="profile-bar">
+    <h1><%= @dog.name %></h1>  
+      <img class="profile-pic" src="<%= @dog.photo_url %>" alt="<%= @dog.name %>'s Pic">
+        <h3>"<%= @dog.tagline %>"</h3>
+    <ul>
+        <li>Gender: <%= @dog.gender.upcase %></li>
+        <li>DOB: <%= @dog.birthday %></li>
+        <li>Size: <%= @dog.size.upcase %></li>
+        <li>Breed: <%= @dog.breed.upcase %></li>
+        <li>Location: <%= @dog.location.upcase %></li>
+        
+    </ul>
+  </div>
+  <div class="bio">
+
+    <p>
+      <%= @dog.bio %>
+    </p>
+    
+  </div>
 
 </div>

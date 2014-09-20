@@ -5,7 +5,7 @@
 }
 nav{
   background-color: #F39;
-  height:60px;
+  height:10%;
   line-height: 60px;
   position: fixed;
   top:0;
@@ -21,23 +21,61 @@ nav li{
   background-image: url('/images/Pugs.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 footer{
   position: fixed;
   bottom:0;
   width: 100%;
   background-color: #F39;
-  height:60px;
+  height:10%;
   line-height: 60px;
 }
 #profile{
-  margin-top: 60px;
-background-color: #CFB2D6;
-height: 100vh;
-
+  position: fixed;
+  top: 10%;
+  background-color: #CFB2D6;
+  height: 80%;
+}
+.profile-bar{
+  text-align: center;
+  position: fixed;
+  left: 0;
+  width:35%;
+  height: 80%;
+  background-color: #669;
+  padding-bottom: 20px;
+}
+.profile-bar h3{
+  margin-bottom: 15px;
+}
+.profile-bar ul{
+  margin-left: 25px;
+  text-align: left;
+  list-style: none;
+  background-color: #A4A4B8;
+  border-radius: 5px;
+  width: 80%;
+  height: 40%;
+  padding: 15px;
+}
+#profile .bio{
+  text-align: center;
+  position: fixed;
+  right:0;
+  height: 80%;
+  width:65%;
+}
+#profile p{
+ box-sizing: content-box;
+ margin-top: 10%;
+ margin-left: 10%;
+ border: 2px solid black;
+ width:80%;
 }
 .profile-pic{
-  width: 250px;
-  height: 250px;
+  display: inline;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  max-width: 500px;
 }
