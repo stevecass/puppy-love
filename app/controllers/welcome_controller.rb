@@ -14,7 +14,7 @@ class WelcomeController < ApplicationController
     puts @owner
     if @owner
       session[:current_user] = @owner.id  
-      redirect_to @owner.dog
+      redirect_to @owner.dogs.first
     else
       flash[:login_error] = "Invalid username/password combination"
       redirect_to '/'
@@ -24,11 +24,6 @@ class WelcomeController < ApplicationController
     #redirect to welcome#home on auth
     #either redirect to welcome#index on auth fail, or popup 
     #an error message on the form.
-  end
-
-  def home
-    #Should go to a dogs homepage once logged in.
-    #Victor's note - I skipped this route since I should be able to redirect straight to the dog's profile once i get there
   end
 
   def logout
