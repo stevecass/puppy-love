@@ -1,0 +1,15 @@
+<div id="profile">
+  <h1><%= @dog.name %>'s Profile</h1>
+  <img class="profile-pic" src="<%= @dog.photo_url %>" alt="<%= @dog.name %>'s Pic">
+  <ul>
+      <li>"<%= @dog.tagline %>"</li>
+      <li><%= @dog.gender.upcase %></li>
+      <li><%= @dog.birthday %></li>
+      <li><%= @dog.size.upcase %></li>
+      <li><%= @dog.breed.upcase %></li>
+      <li><%= @dog.location.upcase %></li>
+      <li><%= @dog.bio %></li>
+      
+  </ul>
+
+</div>

@@ -31,3 +31,13 @@ footer{
   height:60px;
   line-height: 60px;
 }
+#profile{
+  margin-top: 60px;
+background-color: #CFB2D6;
+height: 100vh;
+
+}
+.profile-pic{
+  width: 250px;
+  height: 250px;
+}
