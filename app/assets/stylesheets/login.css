@@ -1,3 +1,42 @@
-.loginmodal{
-  margin-top: 50px;
+#loginmodal{
+  display: none;
+  position:fixed;
+  left: 50%;
+  top: 50%;
+  margin-top: -10%;
+  margin-left: -10%;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px white;
+  width: 250px;
+  height: 150px;
+  z-index: 3;
+}
+
+#signupmodal{
+  display: none;
+  position:fixed;
+  left: 50%;
+  top: 50%;
+  margin-top: -10%;
+  margin-left: -10%;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px white;
+  width: 250px;
+  height: 150px;
+  z-index: 3;
+}
+
+#overlay{
+	display: none;
+  position:fixed;
+  height: 150%;
+  width: 100%;
+  margin-top:-10%;
+  background-color: black;
+  opacity: 0.6; /* see below for cross-browser opacity */
+  z-index: 2;
 }
