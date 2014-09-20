@@ -13,8 +13,14 @@ class DogsController < ApplicationController
   end
 
   def new
-    #return signup form to create an account?
-    # Should this go here or in the owner controller?
+    @dog = Dog.new
+  end
+
+  def create
+    @dog = Dog.new(dog_params)
+    @dog.save
+    redirect_to @dog
+    
   end
 
   def edit  
@@ -45,7 +51,9 @@ class DogsController < ApplicationController
       :birthday,
       :location,
       :tagline,
-      :bio
+      :bio,
+      :photo_url,
+      :name
     )
   end
 
