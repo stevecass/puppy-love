@@ -29,6 +29,7 @@ footer{
   background-color: #F39;
   height:10%;
   line-height: 60px;
+  z-index: 1;
 }
 #profile{
   position: fixed;
@@ -79,4 +80,5 @@ footer{
   height: auto;
   max-width: 400px;
   max-height: 400px;
+
 }
