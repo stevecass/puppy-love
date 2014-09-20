@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
     #This should probably just run the query to 
     # get all the users messages, and the view
     # should show them separated by sent or recieved.
+    @dog = Dog.find_by(owner_id: session[:current_user])
   end
 
   def show

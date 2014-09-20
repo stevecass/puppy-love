@@ -1,0 +1,6 @@
+<% @dog.sent_messages.each do |message| %>
+  <div id='sent_message'>
+  To <%= message.recipient %>:<br>
+  <%= message.content %>
+  </div>
+<% end %>
