@@ -9,7 +9,6 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id].to_i)
-    # Should query for an individual dogs profile, and display that.
   end
 
   def new
@@ -27,7 +26,6 @@ class DogsController < ApplicationController
 
   def edit  
     @dog = Dog.find(params[:id].to_i)
-    #form to edit your own profile
   end
 
   def update
@@ -37,11 +35,16 @@ class DogsController < ApplicationController
     else
       render 'edit'
     end
-    #update your profile
   end
 
   def destroy
-    #delete your own account
+    @dog = Dog.find(params[:id].to_i)
+    if @dog.owner_id == session[:current_user]
+      @dog.destroy
+      redirect_to root_path
+    else
+      render 'edit'
+    end
   end
 
   private
