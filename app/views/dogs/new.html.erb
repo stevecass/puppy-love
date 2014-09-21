@@ -6,21 +6,21 @@
       <%= f.label :name %>
       <%= f.text_field :name, class: "block mb1 input field-small", required: true %>
       
-      <%= f.label :gender %>
-      <%= select_tag(:gender, options_for_select([['Male', 'Male'], ['Female', "Female"]]), class: "block full-width mb1") %>
-
-      <%= f.label :size %>
-      <%= select_tag(:size, options_for_select([['Small', 'Small'], ['Medium', "Medium"], ['Large','Large']]), class: "block full-width mb1") %>
-
-      <%= f.label :breed %>
-      <%= f.text_field :breed, class: "block mb1 input field-small" %>
-
-
       <%= f.label :birthday %>
       <%= f.date_field :birthday, class: "block mb1" %>
 
+      <%= f.label :breed ,class: "block" %>
+      <%= f.text_field :breed, class: "block mb1 input field-small" %>
+
       <%= f.label :location %>
       <%= f.text_field :location, class: "block mb1 input field-small" %>
+
+      <%= f.label :gender %>
+      <%= select(:dog, :gender, options_for_select([['Male', 'Male'], ['Female', 'Female']]),{},{ class: "block mb1 field-small"}) %>
+
+      <%= f.label :size %>
+      <%= select(:dog, :size, options_for_select([['Small', 'Small'], ['Medium', "Medium"], ['Large','Large']]),{}, {class: "block mb1 field-small"}) %>
+
 
     </div>
     <div class="col col-6">
