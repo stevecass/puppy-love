@@ -1,4 +1,4 @@
-<% if @dog.sent_messages %>
+<% if @dog.sent_messages.count > 0 %>
   <% @dog.sent_messages.each do |message| %>
     <div id='sent_message'>
     To <%= message.recipient.name %>:<br>
