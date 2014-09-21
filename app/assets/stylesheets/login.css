@@ -56,7 +56,7 @@
   background-color: white;
 }
 
-form#new_dog{
+form#new_dog, .edit_dog{
   position:fixed;
   left: 50%;
   top: 50%;

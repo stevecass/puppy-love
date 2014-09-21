@@ -1,32 +1,41 @@
 <div id="content">
-Edit your profile<br>
-<%= form_for @dog do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %><br>
-  
-  <%= f.label :gender %>
-  <%= f.text_field :gender %><br>
 
-  <%= f.label :breed %>
-  <%= f.text_field :breed %><br>
 
-  <%= f.label :size %> 
-  <%= f.text_field :size %><br>
+<%= form_for @dog, html:{class: "form edit_dog"} do |f| %>
+    <div class="clearfix">
+    <div class="col col-6">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "block mb1 input field-small", required: true %>
+      
+      <%= f.label :birthday %>
+      <%= f.date_field :birthday, class: "block mb1" %>
 
-  <%= f.label :birthday %>
-  <%= f.text_field :birthday %><br>
+      <%= f.label :breed ,class: "block" %>
+      <%= f.text_field :breed, class: "block mb1 input field-small" %>
 
-  <%= f.label :location %>
-  <%= f.text_field :location %><br>
+      <%= f.label :location %>
+      <%= f.text_field :location, class: "block mb1 input field-small" %>
 
-  <%= f.label :tagline %>
-  <%= f.text_field :tagline %><br>
+      <%= f.label :gender %>
+      <%= select(:dog, :gender, options_for_select([['Male', 'Male'], ['Female', 'Female']]),{},{ class: "block mb1 field-small"}) %>
 
-  <%= f.label :bio %> 
-  <%= f.text_area :bio %><br>
+      <%= f.label :size %>
+      <%= select(:dog, :size, options_for_select([['Small', 'Small'], ['Medium', "Medium"], ['Large','Large']]),{}, {class: "block mb1 field-small"}) %>
 
-  <%= f.label :photo_url %>
-  <%= f.text_field :photo_url %>
-  <%= f.submit %>
+
+    </div>
+    <div class="col col-6">
+
+      <%= f.label :photo_url %>
+      <%= f.text_field :photo_url, class: "block mb1 input field-small" %>
+
+      <%= f.label :bio %>
+      <%= f.text_area :bio, size: "26x7", class: "block mb1" %>
+
+      <%= f.label :tagline %>
+      <%= f.text_field :tagline, class: "block mb1 input field-small" %>
+    <%= f.submit "Create a new Dog!", class: 'button button-small bg-pink right mt3 mr2' %>
+    </div>
+  </div>
 <% end %>
 </div>
