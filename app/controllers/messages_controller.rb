@@ -1,4 +1,5 @@
 class MessagesController < ApplicationController
+  before_action :require_login
 
   def index
     #Show all messages you have sent and received
@@ -46,6 +47,15 @@ class MessagesController < ApplicationController
     @message = Message.find(params[:id])
     @message.destroy
     redirect_to '/messages'
+  end
+
+  private
+
+  def require_login
+    unless session[:current_user]
+      flash[:login_error] = "You must be logged in to access this section"
+      redirect_to root_path # halts request cycle
+    end
   end
 
 end
