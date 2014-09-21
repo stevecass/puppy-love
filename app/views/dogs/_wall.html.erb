@@ -2,12 +2,24 @@
 
 <ul class="comments">
 	<% @dog.comments.each do |comment|%>
-		<li id="level1"><%=render 'comment', :comment => comment %></li>
+		<li id="level1" data-id="<%=comment.id%>"><%=render 'comment', :comment => comment %></li>
 		<% if comment.comments %>
 			<%comment.comments.each do |comment|%>
 				<li id="level2"><%=render 'comment', :comment => comment %></li>
 			<% end %>
 		<% end %>
+		<div id="reply" data-id="<%=comment.id%>">
+			<form id="newreplies" action="/comments" method="post">
+			  <li id="level2">
+				  <input type="hidden" name ="comment[author_id]" value="<%= Dog.find_by(owner_id: session[:current_user]).id %>" requried>
+				  <input type="hidden" name ="comment[commentable_id]" value="<%=comment.id%>" requried>
+				  <input type="hidden" name ="comment[commentable_type]" value="Comment" requried>
+				  <label for="comment"></label>
+				  <input type="text" size="121" name ="comment[content]" placeholder="Write a reply!" requried>
+					<input type="submit" value="Reply!">
+				</li>
+			</form>
+		</div>
 	<% end %>
 <ul>
 
