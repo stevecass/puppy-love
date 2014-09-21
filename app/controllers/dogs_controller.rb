@@ -2,7 +2,7 @@ class DogsController < ApplicationController
   before_action :require_login
 
   def index
-    @dogs = Dog.take(3)
+    @dogs = Dog.take(10)
   end
 
   def show

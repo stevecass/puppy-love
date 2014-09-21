@@ -1,0 +1,24 @@
+.container {
+	width: 95%;	
+}
+
+h1, #search-form {
+	margin: 20px auto;
+	text-align: center;
+}
+
+.card {
+	/*-webkit-box-sizing: border-box;*/
+	margin: 20px auto;
+	text-align: center;
+	border: 2px solid black;
+	/*display: inline;*/
+	float: left;
+	width: 20%;
+	padding: 20px;
+}
+
+.img {
+	width: 15%;
+	height: 15%;
+}
