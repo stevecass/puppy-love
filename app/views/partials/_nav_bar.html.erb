@@ -1,10 +1,10 @@
-<nav>
+<nav >
   <ul>
   	<% if session[:current_user] %>
-  		<li><%= link_to "Home", root_path  %></li>
+  		<li ><%= link_to "Home", root_path  %></li>
 	    <li id="logout"><%= link_to "Log out", logout_path %></li>
   	<%else %>
-	    <li><%= link_to "Home", root_path  %></li>
+	    <li class='button'><%= link_to "Home", root_path  %></li>
 	    <li id="login"><%= link_to "Log In", login_path %></li>
 	    <li id="signup"><%= link_to "Sign up!", new_owner_path %></li>
 	  <% end %>
