@@ -36,6 +36,10 @@
 	width: 97%;
 }
 
+#profile li#level2 button{
+	visibility: hidden;
+}
+
 #profile .comments {
 	height: 2em;
 }
