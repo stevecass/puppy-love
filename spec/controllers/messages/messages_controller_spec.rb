@@ -30,7 +30,6 @@ describe MessagesController, type: :controller do
     end
   end
 
-
 describe "#new" do
     it "Should show the new message form" do
       get :new
