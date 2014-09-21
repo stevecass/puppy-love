@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :require_login
 
   def index
-    @dog = Dog.find_by(owner_id: session[:current_user])
+    @dog = Dog.find(session[:current_dog])
   end
 
   def show
@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @dog = Dog.find(params[:message][:sender])
+    @dog = Dog.find(session[:current_dog])
     receiving_dog = Dog.find(params[:message][:recipient])
     @dog.sent_messages.create(recipient_id: receiving_dog.id, content: params[:message][:content])
     redirect_to '/messages'
