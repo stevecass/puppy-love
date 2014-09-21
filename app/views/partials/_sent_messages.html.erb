@@ -1,0 +1,11 @@
+<% if @dog.sent_messages %>
+  <% @dog.sent_messages.each do |message| %>
+    <div id='sent_message'>
+    To <%= message.recipient.name %>:<br>
+    <%= message.content %>
+    <a href="/messages/<%= message.id %>"><button>View Message</button></a>
+    </div>
+  <% end %>
+<% else %>
+  <p>You have not sent a message.</p>
+<% end %>
