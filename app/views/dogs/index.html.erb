@@ -1,16 +1,29 @@
-<h1>Dogs</h1>
-<%= form_tag("/dogs/search", method: "get") do %>
-  <input type="text" placeholder="Gender" name="query[gender]">
-  <input type="text" placeholder="Breed" name="query[breed]">
-  <input type="text" placeholder="Size" name="query[size]">
-  <input type="text" placeholder="Location" name="query[location]">
-  <input type="submit">
-<% end %>
+<link rel="stylesheet" type="text/css" href="/dog-index.css">
 
-<% @dogs.each do |dog| %>
-  <div class="dog">
-    <img src="<%= dog.photo_url %> " alt="pic">
-    <p><%= dog.name %></p>
-  </div>
-<% end %>
+<div class="container">
+	<h1>Dogs</h1>
+	<div id="search-form">
+		<%= form_tag("/dogs/search", method: "get") do %>
+		  <input type="text" placeholder="Gender" name="query[gender]">
+		  <input type="text" placeholder="Breed" name="query[breed]">
+		  <input type="text" placeholder="Size" name="query[size]">
+		  <input type="text" placeholder="Location" name="query[location]">
+		  <input type="submit">
+		<% end %>
+	</div>
 
+  <% @dogs.each do |dog| %>
+    <div class="card">
+      <div id="img">
+      	<img src="<%= dog.photo_url %> " alt="pic" width="200" height="180">
+      </div>
+      <div id="description">
+        <h4><%= dog.name %></h4>
+        <p><%= dog.gender %> | <%= dog.birthday %></p>
+        <p>Breed: <%= dog.breed %></p>
+        <p>Lives in: <%= dog.location %><br></p>
+        <button class="view-profile">View Profile</button>
+      </div>
+    </div>
+  <% end %>
+</div>
