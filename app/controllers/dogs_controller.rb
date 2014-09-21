@@ -18,6 +18,7 @@ class DogsController < ApplicationController
     @dog.save
     @owner = Owner.find(session[:current_user])
     @owner.dogs << @dog
+    session[:current_dog] = @dog.id
     redirect_to @dog
     
   end

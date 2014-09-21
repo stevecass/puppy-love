@@ -7,6 +7,7 @@ describe MessagesController, type: :controller do
 
   before(:each) do
     session[:current_user] = user.id
+    session[:current_dog] = dog.id
   end
 
   describe "#index" do
@@ -15,7 +16,8 @@ describe MessagesController, type: :controller do
       expect(response).to render_template('index')
     end
     it "Should set @dog to current user's dog" do
-      expect(@dog).to eq(Dog.find_by(owner_id: user.id))
+      get :index
+      expect(assigns(:dog)).to eq(Dog.find(session[:current_dog]))
     end
   end
 
@@ -28,10 +30,9 @@ describe "#new" do
 
   describe "#create" do
     receiving_dog = Dog.create(name: 'Teddy')
-    sending_dog = Dog.create(name: 'Max')
 
     it "Should create a new message and redirect to the index" do
-      post :create, message: {sender: sending_dog.id, recipient: receiving_dog.id, content: "Hey there, Buddy!"}
+      post :create, message: {sender: session[:current_dog], recipient: receiving_dog.id, content: "Hey there, Buddy!"}
       expect(response).to redirect_to '/messages'
     end
   end
