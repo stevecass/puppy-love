@@ -1,12 +1,12 @@
-<nav class='bg-blue'>
-<div class='center nav-dark nav-table nav-small bg-blue'>
+<nav class="bg-pink">
+<div class='center nav-dark nav-table nav-small'>
   	<% if session[:current_user] %>
   		<%= link_to "Home",  {controller: "welcome", action: "index"}, class: "button button-blue " %>
-      <%= link_to "Logout",  logout_path, class: "button button-blue " %>
+      <%= link_to "Logout",  logout_path, class: "button " %>
   	<%else %>
-	    <%= link_to "Home", root_path, class: " button button-blue", id: "test" %>
-      <%= link_to "Login", login_path, class: " button button-blue", id: "login" %>
-      <%= link_to "Sign Up",  new_owner_path, class: " button button-blue", id: "signup" %>
+	    <%= link_to "Home", root_path, class: " button", id: "test" %>
+      <%= link_to "Login", login_path, class: " button", id: "login" %>
+      <%= link_to "Sign Up",  new_owner_path, class: " button ", id: "signup" %>
 	  <% end %>
 </div>
 </nav>

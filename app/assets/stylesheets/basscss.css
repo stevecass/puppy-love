@@ -824,6 +824,10 @@ a:hover {
   color: #11e966;
 }
 
+.pink{
+  color: #F65181
+}
+
 .yellow {
   color: #ffdc00;
 }
@@ -850,6 +854,10 @@ a:hover {
 
 .bg-blue {
   background-color: #0096cc;
+}
+
+.bg-pink {
+  background-color: #F65181;
 }
 
 .bg-green {
