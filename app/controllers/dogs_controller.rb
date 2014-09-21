@@ -1,14 +1,13 @@
 class DogsController < ApplicationController
   before_action :require_login
 
+  ############################################################
 
-  def index 
-    #this action should pull up 100 or so dogs from the DB
-    # and then display them to the user.
-    # If any filtering criteria are selected, a new query 
-    # will run, and 100 new results matching that query will
-    # be dislayed.  
+  def index
+    @dogs = Dog.take(3)
   end
+
+  ############################################################
 
   def show
     @dog = Dog.find(params[:id].to_i)
@@ -48,6 +47,17 @@ class DogsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def search
+    @dogs= Dog.all
+    params[:query].each do |property, val| 
+      if val.length != 0
+        @dogs = @dogs.where("#{property} = ? ", val)
+      end
+    end
+    
+    render 'index'
   end
 
   private

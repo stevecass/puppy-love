@@ -1,0 +1,16 @@
+<h1>Dogs</h1>
+<%= form_tag("/dogs/search", method: "get") do %>
+  <input type="text" placeholder="Gender" name="query[gender]">
+  <input type="text" placeholder="Breed" name="query[breed]">
+  <input type="text" placeholder="Size" name="query[size]">
+  <input type="text" placeholder="Location" name="query[location]">
+  <input type="submit">
+<% end %>
+
+<% @dogs.each do |dog| %>
+  <div class="dog">
+    <img src="<%= dog.photo_url %> " alt="pic">
+    <p><%= dog.name %></p>
+  </div>
+<% end %>
+

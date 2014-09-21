@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'login' => 'welcome#login' 
   post 'auth' => 'welcome#auth'
   get 'logout' => 'welcome#logout'
+  get 'dogs/search' => 'dogs#search'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
