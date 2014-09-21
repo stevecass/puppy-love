@@ -22,7 +22,7 @@ $( document ).ready(function() {
 	if( $('#loginerror').length != 0 ){
 		displayLogin();
 	}
-});
+})
 
 function displaySignup(){
 	$('#overlay').css( "display", "inherit")
