@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'spec_helper'
 
 describe MessagesController, type: :controller do
 
@@ -9,7 +8,6 @@ describe MessagesController, type: :controller do
   before(:each) do
     session[:current_user] = user.id
   end
-
 
   describe "#index" do
     it "Should render the index template" do
@@ -28,18 +26,15 @@ describe "#new" do
     end
   end
 
+  describe "#create" do
+    receiving_dog = Dog.create(name: 'Teddy')
+    sending_dog = Dog.create(name: 'Max')
 
-  # describe "#create" do
-  #   receiving_dog = Dog.new(name: 'Teddy')
-  #   it "Should create a new message and redirect to the index" do
-  #     post :create, dog: {sender_id: 1, recipient_id: 2, content: "Hey there, Buddy!"}
-  #     expect(response).to redirect_to '/messages'
-  #   end
-  # end
-# This one has been giving me trouble. Also, it can and probably should be split up into two tests - one for th creation and one for the redirect...?
-
-
-
+    it "Should create a new message and redirect to the index" do
+      post :create, message: {sender: sending_dog.id, recipient: receiving_dog.id, content: "Hey there, Buddy!"}
+      expect(response).to redirect_to '/messages'
+    end
+  end
 
   describe "#show" do
     let(:message){Message.create(sender_id: 1, recipient_id: 2, content: "Hey there, Buddy!")}
