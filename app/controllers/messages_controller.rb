@@ -11,14 +11,23 @@ class MessagesController < ApplicationController
   def show
     #Show an indivudual message, and any comments that 
     #that message has.
+    p params
+    @message = Message.find(params[:id])
   end 
 
   def new
     #form to create a new message
+    @message = Message.new
+    @dog = Dog.find_by(owner_id: session[:current_user])
   end
 
   def create
     #create a new message
+    @dog = Dog.find_by(owner_id: session[:current_user])
+    receiving_dog = Dog.find_by(name: params[:message][:recipient_id])
+    p params[:message][:recipient_id]
+    Message.create(sender_id: @dog.id, recipient_id: receiving_dog.id, content: params[:message][:content])
+    redirect_to '/messages'
   end
 
   def edit
@@ -34,6 +43,9 @@ class MessagesController < ApplicationController
     # message should still remain in the other parties messages.
     #ie: me deleting a message I sent you doesnt also remove it from 
     # your inbox.
+    @message = Message.find(params[:id])
+    @message.destroy
+    redirect_to '/messages'
   end
 
 end
