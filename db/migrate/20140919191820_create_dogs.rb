@@ -16,4 +16,3 @@ class CreateDogs < ActiveRecord::Migration
     end
   end
 end
-`
