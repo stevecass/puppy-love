@@ -43,3 +43,7 @@
 #profile .comments {
 	height: 2em;
 }
+
+#reply{
+	display: none;
+}
