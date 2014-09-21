@@ -1,14 +1,29 @@
 class DogsController < ApplicationController
   before_action :require_login
 
+  ############################################################
 
-  def index 
-    #this action should pull up 100 or so dogs from the DB
-    # and then display them to the user.
-    # If any filtering criteria are selected, a new query 
-    # will run, and 100 new results matching that query will
-    # be dislayed.  
-  end
+
+  def index
+      @filterrific = Filterrific.new(
+        Dog,
+        params[:filterrific] || session[:filterrific_dogs]
+      )
+
+      @filterrific.select_options = {
+        sorted_by: Dog.options_for_sorted_by,
+      }
+
+      session[:filterrific_dogs] = @filterrific.to_hash
+
+      # Respond to html for initial page load and to js for AJAX filter updates.
+      respond_to do |format|
+        format.html
+        format.js
+      end
+
+
+  ############################################################
 
   def show
     @dog = Dog.find(params[:id].to_i)
