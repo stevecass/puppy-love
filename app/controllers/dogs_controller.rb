@@ -4,7 +4,7 @@ class DogsController < ApplicationController
   ############################################################
 
   def index
-    @dogs = Dog.take(3)
+    @dogs = Dog.take(10)
   end
 
   ############################################################
