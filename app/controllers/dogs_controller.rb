@@ -5,22 +5,23 @@ class DogsController < ApplicationController
 
 
   def index
-      @filterrific = Filterrific.new(
-        Dog,
-        params[:filterrific] || session[:filterrific_dogs]
-      )
+    @filterrific = Filterrific.new(
+      Dog,
+      params[:filterrific] || session[:filterrific_dogs]
+    )
 
-      @filterrific.select_options = {
-        sorted_by: Dog.options_for_sorted_by,
-      }
+    @filterrific.select_options = {
+      sorted_by: Dog.options_for_sorted_by,
+    }
 
-      session[:filterrific_dogs] = @filterrific.to_hash
+    session[:filterrific_dogs] = @filterrific.to_hash
 
-      # Respond to html for initial page load and to js for AJAX filter updates.
-      respond_to do |format|
-        format.html
-        format.js
-      end
+    # Respond to html for initial page load and to js for AJAX filter updates.
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
 
 
   ############################################################
