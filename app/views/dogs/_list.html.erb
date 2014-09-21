@@ -1,0 +1,25 @@
+<div id="filterrific_results">
+
+  <div>
+    <%= page_entries_info dogs # provided by will_paginate %>
+  </div>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Location</th>
+      <th>Age</th>
+    </tr>
+    <% dogs.each do |dog| %>
+      <tr>
+        <td><%= link_to(dog.name, dog_path(dog)) %></td>
+        <td><%= dog.email %></td>
+        <!-- Need to change this line -->
+        <td><%= dog.decorated_created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= will_paginate dogs # provided by will_paginate %>
