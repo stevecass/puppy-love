@@ -55,3 +55,17 @@
   top: 25%;
   background-color: white;
 }
+
+form#new_dog{
+  position:fixed;
+  left: 50%;
+  top: 50%;
+  margin-top: -200px;
+  margin-left: -250px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px black;
+  width: 500px;
+  height: 400px;
+}
