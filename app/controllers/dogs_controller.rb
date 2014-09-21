@@ -1,4 +1,6 @@
 class DogsController < ApplicationController
+  before_action :require_login
+
   def index 
     #this action should pull up 100 or so dogs from the DB
     # and then display them to the user.
@@ -60,6 +62,13 @@ class DogsController < ApplicationController
       :photo_url,
       :name
     )
+  end
+ 
+  def require_login
+    unless session[:current_user]
+      flash[:login_error] = "You must be logged in to access this section"
+      redirect_to root_path # halts request cycle
+    end
   end
 
 end

@@ -1,0 +1,22 @@
+<h3><%= @dog.name %>'s wall</h3>
+
+<ul class="comments">
+	<% @dog.comments.each do |comment|%>
+		<li id="level1"><%=render 'comment', :comment => comment %></li>
+		<% if comment.comments %>
+			<%comment.comments.each do |comment|%>
+				<li id="level2"><%=render 'comment', :comment => comment %></li>
+			<% end %>
+		<% end %>
+	<% end %>
+<ul>
+
+<br>
+<form id="newcomments" action="/comments" method="post">
+  <input type="hidden" name ="comment[author_id]" value="<%= Dog.find_by(owner_id: session[:current_user]).id %>" requried>
+  <input type="hidden" name ="comment[commentable_id]" value="<%= @dog.id %>" requried>
+  <input type="hidden" name ="comment[commentable_type]" value="Dog" requried>
+  <label for="comment"></label>
+  <input type="text" size="121" name ="comment[content]" placeholder="Write on <%=@dog.name%>'s wall!" requried>
+<input type="submit" value="Comment!">
+</form>

@@ -1,0 +1,22 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+Compose your message:
+<%= form_for @message, url: {action: "create"}  do |f| %>
+  <%= f.label :recipient_id, 'Send To:' %>
+  <%= f.text_field :recipient_id %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+<% end %>
+</div>

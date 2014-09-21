@@ -1,0 +1,11 @@
+<% if @dog.received_messages.count > 0 %>
+  <% @dog.received_messages.each do |message| %>
+    <div id='received_message'>
+    From <%= message.sender.name %>:<br>
+    <%= message.content %>
+    <a href="/messages/<%= message.id %>"><button>View Message</button></a>
+    </div>
+  <% end %>
+<% else %>
+  <p>You have 0 messages in your inbox.</p>
+<% end %>
