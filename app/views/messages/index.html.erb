@@ -13,11 +13,11 @@
 <br>
 <h1><%= "#{@dog.name}'s Messages" %></h1>
 <a href="/messages/new"><button type='button'>Send a Message</button></a>
-<div>
+<div id='inbox'>
 Inbox
   <%= render 'partials/received_messages' %>
 </div>
-<div>
+<div id='outbox'>
 Sent
   <%= render 'partials/sent_messages' %>
 </div>
