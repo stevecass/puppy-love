@@ -1,4 +1,6 @@
 class OwnersController < ApplicationController
+  before_action :require_login
+
   def new
     @owner = Owner.new
   end
@@ -16,6 +18,15 @@ class OwnersController < ApplicationController
   		flash[:signup_error] = "Passwords don't match"
   		redirect_to '/'
   	end
+  end
+
+  private
+
+  def require_login
+    unless session[:current_user]
+      flash[:login_error] = "You must be logged in to access this section"
+      redirect_to root_path # halts request cycle
+    end
   end
 
 end

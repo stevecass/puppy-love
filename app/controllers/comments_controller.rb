@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :require_login
 
   def index
     
@@ -35,5 +36,13 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:author_id, :commentable_id, :commentable_type, :content)
   end
+
+  def require_login
+    unless session[:current_user]
+      flash[:login_error] = "You must be logged in to access this section"
+      redirect_to root_path # halts request cycle
+    end
+  end
+
 
 end
