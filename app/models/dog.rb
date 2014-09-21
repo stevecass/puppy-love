@@ -5,4 +5,5 @@ class Dog < ActiveRecord::Base
   has_many :received_messages, class_name: 'Message', foreign_key: :recipient_id
   has_many :comments, as: :commentable
   has_many :sent_comments, class_name: 'Comment', foreign_key: :author_id
+
 end
