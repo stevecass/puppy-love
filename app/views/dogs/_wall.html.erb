@@ -1,9 +1,11 @@
+<h3><%= @dog.name %>'s wall</h3>
+
 <ul class="comments">
 	<% @dog.comments.each do |comment|%>
 		<li id="level1"><%=render 'comment', :comment => comment %></li>
 		<% if comment.comments %>
 			<%comment.comments.each do |comment|%>
-				<li id="level2"><%=comment.content%></li>
+				<li id="level2"><%=render 'comment', :comment => comment %></li>
 			<% end %>
 		<% end %>
 	<% end %>
