@@ -1,4 +1,6 @@
 class DogsController < ApplicationController
+  before_action :require_login
+
   def index 
     #this action should pull up 100 or so dogs from the DB
     # and then display them to the user.
@@ -9,7 +11,6 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id].to_i)
-    # Should query for an individual dogs profile, and display that.
   end
 
   def new
@@ -27,7 +28,6 @@ class DogsController < ApplicationController
 
   def edit  
     @dog = Dog.find(params[:id].to_i)
-    #form to edit your own profile
   end
 
   def update
@@ -37,11 +37,16 @@ class DogsController < ApplicationController
     else
       render 'edit'
     end
-    #update your profile
   end
 
   def destroy
-    #delete your own account
+    @dog = Dog.find(params[:id].to_i)
+    if @dog.owner_id == session[:current_user]
+      @dog.destroy
+      redirect_to root_path
+    else
+      render 'edit'
+    end
   end
 
   private
@@ -57,6 +62,13 @@ class DogsController < ApplicationController
       :photo_url,
       :name
     )
+  end
+ 
+  def require_login
+    unless session[:current_user]
+      flash[:login_error] = "You must be logged in to access this section"
+      redirect_to root_path # halts request cycle
+    end
   end
 
 end
