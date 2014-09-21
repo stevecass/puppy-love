@@ -1,6 +1,7 @@
 class DogsController < ApplicationController
   before_action :require_login
 
+
   def index 
     #this action should pull up 100 or so dogs from the DB
     # and then display them to the user.
