@@ -1,9 +1,9 @@
 $(document).ready(function(){
   var commentId;
 
-	$('form#newcomments').submit(function(event){
-		event.preventDefault();
-		$.ajax({
+  $('form#newcomments').submit(function(event){
+    event.preventDefault();
+    $.ajax({
       url: '/comments/',
       type: 'POST',
       data: $(this).serialize(),
@@ -13,12 +13,31 @@ $(document).ready(function(){
     }).fail(function(response){
       console.log('FAIL');
     });
-	})
+  })
 
-  $('.comments button').click(function(event){
+  $('.comments button[name="reply"]').click(function(event){
     event.preventDefault();
     commentId = $(this).parent().data().id;
     $('#reply[data-id="' + commentId + '"').slideDown();
+  })
+
+  $('.comments button[name="delete"]').click(function(event){
+    event.preventDefault();
+    var response = confirm("Are you sure you want to delete this comment?")
+    if (response){
+      commentId = $(this).parent().data().delete;
+      $.ajax({
+        url: '/comments/'+commentId,
+        type: 'DELETE',
+        data: $(this).serialize(),
+        dataType: 'text'
+      }).done(function(response){
+        alert(response);
+        $('.comments li[data-delete="' + commentId + '"').slideUp();
+      }).fail(function(response){
+        console.log('FAIL');
+      });
+    }
   })
 
   $('form#newreplies').submit(function(event){
