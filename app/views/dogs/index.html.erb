@@ -1,23 +1,23 @@
+	 <div id="profile-overlay"></div>
 <div class="container">
-<div class="dogs-index">
-	<h1>Dogs</h1>
-	<div id="search-form">
-		<%= form_tag("/dogs/search", method: "get") do %>
-		  <input type="text" placeholder="Gender" name="query[gender]">
-		  <input type="text" placeholder="Breed" name="query[breed]">
-		  <input type="text" placeholder="Size" name="query[size]">
-		  <input type="text" placeholder="Location" name="query[location]">
-		  <input type="submit">
-		<% end %>
-	</div>
 
-  <% @dogs.each do |dog| %>
+  <div class="dogs-index">
+      <h1>Dogs</h1>
+      <div id="search-form">
+          <%= form_tag("/dogs/search", method: "get") do %>
+          <input type="text" placeholder="Gender" name="query[gender]">
+          <input type="text" placeholder="Breed" name="query[breed]">
+          <input type="text" placeholder="Size" name="query[size]">
+          <input type="text" placeholder="Location" name="query[location]">
+          <input type="submit">
+          <% end %>
+       </div>
 
-	  <div data-dog-id=<%=dog.id %> id="profile-content-<%=dog.id %>">
-	    <div id="profile-overlay">
-	  	</div>
-	  	<%= render partial: 'profilemodal', locals: {dog: dog} %>
-	  </div>
+      <% @dogs.each do |dog| %>
+
+       <div data-dog-id=<%=dog.id %> id="profile-content-<%=dog.id %>">
+	  	 <%= render partial: 'profilemodal', locals: {dog: dog} %>
+	     </div>
 
     <div class="card">
       <div id="img">
@@ -33,5 +33,6 @@
       </div>
     </div>
   <% end %>
+  </div>
 </div>
 
