@@ -4,13 +4,13 @@
 
 	<% @dog.comments.each do |comment|%>
 		
-		<li id="level1" data-id="<%=comment.id%>">
+		<li id="level1" data-id="<%=comment.id%>" data-delete="<%=comment.id%>">
 			<%=render 'comment', :comment => comment %>
 		</li>
 
 		<% if comment.comments %>
 			<%comment.comments.each do |comment|%>
-				<li id="level2">
+				<li id="level2" data-delete="<%=comment.id%>">
 					<%=render 'comment', :comment => comment %>
 				</li>
 			<% end %>
