@@ -1,15 +1,10 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<div id="content">
 <h1>From: <%=@message.sender.name %></h1>
-<p><%= @message.content %></p>
+<div class='specific_msg'>
+<p id='message_content'><%= @message.content %></p>
 <br>
 <%= form_for @message, url: {action: "destroy"}, method: 'delete'  do |f| %>
-  <%= f.submit 'Delete This Message' %>
+  <%= f.submit 'Delete This Message', class: 'button button-large bg-red'  %>
 <% end %>
+</div>
+</div>
