@@ -55,4 +55,16 @@ $(document).ready(function(){
     });
   })
 
+  $('#dog-details button').click(function(event){
+    event.preventDefault();
+    console.log('Hello!')
+    $('#overlay').css( "display", "inherit");
+    $('#profile .message_comp').css( "display", "inherit");
+  })
+
+  $('#overlay').click(function(event){
+    $('#overlay').css( "display", "none");
+    $('#profile .message_comp').css( "display", "none");
+  })
+
 })
