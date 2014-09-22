@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
 
   def create
     @dog = Dog.find(session[:current_dog])
-    receiving_dog = Dog.find(params[:message][:recipient])
+    receiving_dog = Dog.find(params[:message][:recipient_id])
     @dog.sent_messages.create(recipient_id: receiving_dog.id, content: params[:message][:content])
     redirect_to '/messages'
   end
