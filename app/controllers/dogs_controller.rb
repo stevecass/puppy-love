@@ -24,7 +24,11 @@ class DogsController < ApplicationController
   end
 
   def edit
-    @dog = Dog.find(params[:id].to_i)
+    if params[:id] == session[:current_dog]
+      @dog = Dog.find(params[:id].to_i)
+    else
+     redirect_to '/'
+    end
   end
 
   def update
