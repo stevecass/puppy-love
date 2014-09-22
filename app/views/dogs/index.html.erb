@@ -21,7 +21,7 @@
         <p><%= dog.gender %> | <%= dog.birthday %></p>
         <p>Breed: <%= dog.breed %></p>
         <p>Lives in: <%= dog.location %><br></p>
-        <button class="view-profile">View Profile</button>
+        <%= button_to "View Profile", dog_path(dog.id), method: :get%>
       </div>
     </div>
   <% end %>
