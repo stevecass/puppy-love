@@ -22,8 +22,15 @@
         <p><%= dog.gender %> | <%= dog.birthday %></p>
         <p>Breed: <%= dog.breed %></p>
         <p>Lives in: <%= dog.location %><br></p>
+        <% dog.id %>
         <button class="view-profile">View Profile</button>
       </div>
     </div>
   <% end %>
+</div>
+
+<div id="profile-content">
+  <div id="profile-overlay">
+	</div>
+	<%= render 'profilemodal' %>
 </div>
