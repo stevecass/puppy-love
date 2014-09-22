@@ -1,21 +1,21 @@
-<div id="profilemodal" >
-<h3><%= @dog.name %>'s Profile</h3>
+<div class="profile_modal" id="profilemodal-<%= dog.id %>">
+<h3><%=dog.name %>'s Profile</h3>
 
-  <%# @dog.each do |dog| %>
     <div class="profile-card">
       <div id="profile-img">
-      	<img src="<%= @dog.photo_url %> " alt="pic" width="200" height="180">
+      	<img src="<%= dog.photo_url %> " alt="pic" width="200" height="180">
       </div>
       <div id="description">
-      	<p><%= @dog.tagline %></p>
-        <p><%= @dog.gender %> | <%= @dog.birthday %></p>
-        <p>Size:  <%= @dog.size %></p>
-        <p>Breed: <%= @dog.breed %></p>
-        <p>Lives in: <%= @dog.location %><br></p>
-        <p>About me: <%= @dog.bio %></p>
+      	<p><%= dog.tagline %></p>
+        <p><%= dog.gender %> | <%= dog.birthday %></p>
+        <p>Size:  <%= dog.size %></p>
+        <p>Breed: <%= dog.breed %></p>
+        <p>Lives in: <%= dog.location %><br></p>
+        <p>About me: <%= dog.bio %></p>
       </div>
     </div>
-  <%= form_tag(dog_path(@dog), method: "get") do %>
+  <%= form_tag(dog_path(dog), method: "get") do %>
     <%= submit_tag("View Profile!", class:"button bg-pink ") %>
   <% end %>
 </div>
+
