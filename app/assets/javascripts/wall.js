@@ -55,7 +55,7 @@ $(document).ready(function(){
     });
   })
 
-  $('#dog-details button').click(function(event){
+  $('#dog-details button[name="message"]').click(function(event){
     event.preventDefault();
     console.log('Hello!')
     $('#overlay').css( "display", "inherit");
