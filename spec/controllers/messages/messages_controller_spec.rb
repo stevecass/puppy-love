@@ -32,7 +32,7 @@ describe "#new" do
     receiving_dog = Dog.create(name: 'Teddy')
 
     it "Should create a new message and redirect to the index" do
-      post :create, message: {sender: session[:current_dog], recipient: receiving_dog.id, content: "Hey there, Buddy!"}
+      post :create, message: {sender_id: session[:current_dog], recipient_id: receiving_dog.id, content: "Hey there, Buddy!"}
       expect(response).to redirect_to '/messages'
     end
   end
