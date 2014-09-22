@@ -4,7 +4,8 @@ class DogsController < ApplicationController
   ############################################################
 
   def index
-    @dogs = Dog.take(10)
+    @dogs = Dog.all
+    @dog = Dog.find(1)
   end
 
   ############################################################
