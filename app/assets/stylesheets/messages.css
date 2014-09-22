@@ -8,6 +8,8 @@
   font-size: 2em;
   background-color: #E67AAA;
   text-align: center;
+  overflow-y: auto;
+  height: 500px;
 }
 
  #outbox {
@@ -19,6 +21,8 @@
   font-size: 2em;
   background-color: #E67AAA;
   text-align: center;
+  overflow-y: auto;
+  height: 500px;
  }
 
 #send_message_button {
@@ -58,6 +62,8 @@
   padding: 5%;
   background-color: #E4F5F4;
   font-size: 1em;
+  overflow-y: auto;
+  height: 100px;
 }
 
 .specific_msg p {
