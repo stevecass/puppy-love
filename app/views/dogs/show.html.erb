@@ -8,14 +8,12 @@
       <br>
       <% if @dog.id != session[:current_dog] %>
         <button type="button" class="button button-small button-pink" name="message" data-recepient="<%=@dog.id%>">Message</button>
-        <br><br>
       <% elsif @dog.id == session[:current_dog] %>
         <form action="/dogs/<%=@dog.id%>/edit.html">
           <button type="submit" class="button button-small button-pink" name="edit" data-recepient="<%=@dog.id%>">Edit Profile</button>
         </form>
-        <br><br>
       <% end %>
-      
+      <br><br>
       <span>Gender: <%= @dog.gender%></span><br>
       <span>DOB: <%= @dog.birthday %></span><br>
       <span>Size: <%= @dog.size%></span><br>
