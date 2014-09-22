@@ -1,14 +1,10 @@
 class DogsController < ApplicationController
   before_action :require_login
 
-  ############################################################
-
   def index
     @dogs = Dog.all
-    @dog = Dog.find(1)
+    # @dog = Dog.find(1)
   end
-
-  ############################################################
 
   def show
     @dog = Dog.find(params[:id].to_i)
