@@ -25,7 +25,7 @@ h1, #search-form {
 	height: 15%;
 }
 
-#profilemodal{
+.profile_modal{
   display: none;
   position:fixed;
 /*  left: 50%;
@@ -47,6 +47,7 @@ h1, #search-form {
   height: 150%;
   width: 100%;
   margin-top:-30%;
+  margin-left: -8.3%;
   background-color: black;
   opacity: 0.6; /* see below for cross-browser opacity */
 }
