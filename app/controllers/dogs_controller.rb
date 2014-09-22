@@ -2,7 +2,7 @@ class DogsController < ApplicationController
   before_action :require_login
 
   def index
-    @dogs = Dog.take(10)
+    @dogs = Dog.all
   end
 
   def show
@@ -20,10 +20,10 @@ class DogsController < ApplicationController
     @owner.dogs << @dog
     session[:current_dog] = @dog.id
     redirect_to @dog
-    
+
   end
 
-  def edit  
+  def edit
     @dog = Dog.find(params[:id].to_i)
   end
 
@@ -48,12 +48,12 @@ class DogsController < ApplicationController
 
   def search
     @dogs= Dog.all
-    params[:query].each do |property, val| 
+    params[:query].each do |property, val|
       if val.length != 0
         @dogs = @dogs.where("#{property} = ? ", val)
       end
     end
-    
+
     render 'index'
   end
 
@@ -71,7 +71,7 @@ class DogsController < ApplicationController
       :name
     )
   end
- 
+
   def require_login
     unless session[:current_user]
       flash[:login_error] = "You must be logged in to access this section"
