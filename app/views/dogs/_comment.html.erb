@@ -1,3 +1,10 @@
+<a href="/dogs/<%=comment.author.id%>">
 <img src="<%=comment.author.photo_url%>" height="45" width="45">
+<%= comment.author.name%>
+</a>
+<br>
 <%= comment.content %>
 <button type="button" class="button button-small button-blue" name="reply">Reply!</button>
+<% if comment.author_id == session[:current_dog] %>
+	<button type="button" class="button button-small button-blue" name="delete">Delete!</button>
+<% end %>
