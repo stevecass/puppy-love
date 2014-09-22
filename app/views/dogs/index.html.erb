@@ -13,6 +13,13 @@
 	</div>
 
   <% @dogs.each do |dog| %>
+
+	  <div data-dog-id=<%=dog.id %> id="profile-content-<%=dog.id %>">
+	    <div id="profile-overlay">
+	  	</div>
+	  	<%= render partial: 'profilemodal', locals: {dog: dog} %>
+	  </div>
+
     <div class="card">
       <div id="img">
       	<img src="<%= dog.photo_url %> " alt="pic" width="200" height="180">
@@ -22,15 +29,9 @@
         <p><%= dog.gender %> | <%= dog.birthday %></p>
         <p>Breed: <%= dog.breed %></p>
         <p>Lives in: <%= dog.location %><br></p>
-        <% dog.id %>
-        <button class="view-profile">View Profile</button>
+        <% @id = dog.id %>
+        <button data-dog-id="<%= dog.id %>" class="view-profile">View Profile</button>
       </div>
     </div>
   <% end %>
-</div>
-
-<div id="profile-content">
-  <div id="profile-overlay">
-	</div>
-	<%= render 'profilemodal' %>
 </div>
