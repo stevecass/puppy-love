@@ -28,7 +28,8 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    #destroy comment
+    Comment.find(params[:id]).destroy
+    render text: "Comment deleted!"
   end
 
   private

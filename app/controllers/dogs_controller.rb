@@ -3,7 +3,6 @@ class DogsController < ApplicationController
 
   def index
     @dogs = Dog.all
-    # @dog = Dog.find(1)
   end
 
   def show
@@ -19,12 +18,17 @@ class DogsController < ApplicationController
     @dog.save
     @owner = Owner.find(session[:current_user])
     @owner.dogs << @dog
+    session[:current_dog] = @dog.id
     redirect_to @dog
-    
+
   end
 
-  def edit  
-    @dog = Dog.find(params[:id].to_i)
+  def edit
+    if params[:id] == session[:current_dog]
+      @dog = Dog.find(params[:id].to_i)
+    else
+     redirect_to '/'
+    end
   end
 
   def update
@@ -48,12 +52,12 @@ class DogsController < ApplicationController
 
   def search
     @dogs= Dog.all
-    params[:query].each do |property, val| 
+    params[:query].each do |property, val|
       if val.length != 0
         @dogs = @dogs.where("#{property} = ? ", val)
       end
     end
-    
+
     render 'index'
   end
 
@@ -71,7 +75,7 @@ class DogsController < ApplicationController
       :name
     )
   end
- 
+
   def require_login
     unless session[:current_user]
       flash[:login_error] = "You must be logged in to access this section"

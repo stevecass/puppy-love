@@ -1,0 +1,19 @@
+
+<div id='content'>
+  <div class='message_comp'>
+Compose your message:
+<form id="newmessage" action="/messages" method="post">
+  <div class="clearfix">
+  <div class="col col-6">
+  <label for="message[recipient_id]">Send To:</label>
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="hidden" name ="message[recipient_id]" value="<%=@dog.id%>" required>
+  <%=@dog.name%>
+  <label for="message[content]">Content:</label>
+  <textarea cols="26" rows="7" name="message[content]" class= "block mb1" required>
+  </textarea>
+
+  <input type="submit" class="button button-small bg-pink">
+</form>
+  </div>
+</div>

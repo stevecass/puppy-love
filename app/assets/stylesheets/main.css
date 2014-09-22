@@ -17,7 +17,15 @@ footer{
   width: 100%;
   z-index: 1;
 }
-#profile{
+#dog-details{
+  position: fixed;
+  left:0;
+  height: 100%;
+}
+#dog-wall{
+  margin-left: 20%;
+}
+/*#profile{
   position: fixed;
   top: 10%;
   background-color: #CFB2D6;
@@ -67,4 +75,4 @@ footer{
   max-width: 400px;
   max-height: 400px;
 
-}
+}*/

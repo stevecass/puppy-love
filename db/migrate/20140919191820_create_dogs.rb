@@ -11,7 +11,6 @@ class CreateDogs < ActiveRecord::Migration
       t.string :tagline
       t.text :bio
       t.string :photo_url
-
       t.timestamps
     end
   end

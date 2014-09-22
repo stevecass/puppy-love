@@ -12,6 +12,7 @@ class WelcomeController < ApplicationController
     if @owner
       session[:current_user] = @owner.id
       @dog = @owner.dogs.first
+      session[:current_dog] = @dog.id
       redirect_to @dog
     else
       flash[:login_error] = "Invalid username/password combination"

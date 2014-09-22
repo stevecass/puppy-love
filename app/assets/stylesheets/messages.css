@@ -1,0 +1,71 @@
+
+#inbox {
+  float: left;
+  margin: 0 0 0 5%;
+  padding: 2% 5% 2% 2%;
+  border: 1px solid gray;
+  width: 30%;
+  font-size: 2em;
+  background-color: #E67AAA;
+  text-align: center;
+  overflow-y: auto;
+  height: 500px;
+}
+
+ #outbox {
+  float: right;
+  margin: 0 5% 0 0;
+  padding: 2% 5% 2% 2%;
+  border: 1px solid gray;
+  width: 30%;
+  font-size: 2em;
+  background-color: #E67AAA;
+  text-align: center;
+  overflow-y: auto;
+  height: 500px;
+ }
+
+#send_message_button {
+  border: 1px solid gray;
+  float: right;
+  margin-right: 5%;
+}
+
+#sent_message {
+  font-size: .5em;
+  border: .25em dotted #7AE6B6;
+  margin: 2%;
+  padding: 2%;
+  background-color: #E4F5F4;
+  border-radius: 13em/3em;
+  width: 100%;
+}
+
+#received_message {
+  font-size: .5em;
+  border: .25em dotted #7AE6B6;
+  margin: 2%;
+  padding: 2%;
+  background-color: #E4F5F4;
+  border-radius: 13em/3em;
+  width: 100%;
+}
+
+.message_comp {
+  font-size: 2em;
+  font-family: sans-serif;
+}
+
+.specific_msg {
+  border: 1px solid gray;
+  text-align: center;
+  padding: 5%;
+  background-color: #E4F5F4;
+  font-size: 1em;
+  overflow-y: auto;
+  height: 100px;
+}
+
+.specific_msg p {
+  font-size: 1.5em;
+}
