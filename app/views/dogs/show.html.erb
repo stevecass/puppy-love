@@ -1,11 +1,16 @@
 <div class="profile">
 
-  <div class="clearfix">
-    <div class="col col-2 bg-blue" id="dog-details">
-      <h1><%= @dog.name %></h1>
-      <h3>"<%= @dog.tagline %>"</h3>
-      <img class="half-width block" src="<%= @dog.photo_url %> " alt="">
-      <br>
+  <div class="dog-details">
+    <div class="dog-header"><b><%= @dog.name %></b> - "<%= @dog.tagline %>"</div>
+    <div class="detail-left">
+      <img src="<%= @dog.photo_url %>" alt="">
+    </div>
+    <div class="detail-right">
+      <p>Gender: <%= @dog.gender%></p>
+      <p>DOB: <%= @dog.birthday %></p>
+      <p>Size: <%= @dog.size%></p>
+      <p>Breed: <%= @dog.breed.capitalize%></p>
+      <p>Location: <%= @dog.location.upcase %></p>
       <% if @dog.id != session[:current_dog] %>
         <button type="button" class="button button-small button-pink" name="message" data-recepient="<%=@dog.id%>">Message</button>
       <% elsif @dog.id == session[:current_dog] %>
@@ -13,23 +18,16 @@
           <button type="submit" class="button button-small button-pink" name="edit" data-recepient="<%=@dog.id%>">Edit Profile</button>
         </form>
       <% end %>
-      <br><br>
-      <span>Gender: <%= @dog.gender%></span><br>
-      <span>DOB: <%= @dog.birthday %></span><br>
-      <span>Size: <%= @dog.size%></span><br>
-      <span>Breed: <%= @dog.breed.capitalize%></span><br>
-      <span>Location: <%= @dog.location.upcase %></span><br>
     </div>
+    <div class="bio">
+      <h3><%= @dog.name %>'s bio:</h3>
+      <%= @dog.bio.gsub(/\r\n?/, '<br/>').html_safe %>
+    </div>
+  </div>
 
-    <div class="wall col col-5 mb4" id="dog-wall">
-      <%= render 'wall' %>
-    </div>
-    <div class="wall col col-4 mb4" id="dog-bio">
-      <%= render 'bio' %>
-    </div>
+  <div class="dog-wall">
+    <%= render 'wall' %>
+  </div>
 
-    <div id="overlay">
-    </div>
-    <%= render '/messages/new'%>
-
+  <%= render '/messages/new' %>
 </div>
