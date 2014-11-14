@@ -1,10 +1,15 @@
-<a href="/dogs/<%=comment.author.id%>">
-<img src="<%=comment.author.photo_url%>" height="45" width="45">
-<%= comment.author.name%>
-</a>
-<br>
-<%= comment.content %>
-<button type="button" class="button button-small button-blue" name="reply">Reply!</button>
-<% if comment.author_id == session[:current_dog] %>
-	<button type="button" class="button button-small button-blue" name="delete">Delete!</button>
-<% end %>
+<div class="comment">
+	<a href="/dogs/<%=comment.author.id%>">
+	<img src="<%=comment.author.photo_url%>" id="comment-photo">
+	<div class="comment-top">
+		<%= comment.author.name%>
+		</a> - <%= comment.created_at.localtime.strftime("%m/%d/%Y %H:%M")%>
+		<% if comment.author_id == session[:current_dog] %>
+			<button type="button" class="button button-small button-blue" name="delete">Delete</button>
+		<% end %>
+	</div>
+	<div class="comment-bottom">
+		<%= comment.content.gsub(/\r\n?/, '<br/>').html_safe %>
+		<button type="button" class="button button-small button-blue" name="reply">Reply</button>
+	</div>
+</div>

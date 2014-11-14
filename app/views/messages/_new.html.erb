@@ -8,7 +8,9 @@ Compose your message:
   <label for="message[recipient_id]">Send To:</label>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <input type="hidden" name ="message[recipient_id]" value="<%=@dog.id%>" required>
-  <%=@dog.name%>
+  <div id="recipient_name">
+    <%=@dog.name%>
+  </div>
   <label for="message[content]">Content:</label>
   <textarea cols="26" rows="7" name="message[content]" class= "block mb1" required>
   </textarea>

@@ -9,7 +9,7 @@ $(document).ready(function(){
       data: $(this).serialize(),
       dataType: 'html'
     }).done(function(response){
-      $('.comments').prepend('<li id="level1">'+response+'</li>')
+      $('.comments').prepend('<li id="level1">'+response+'</li>').show('slow')
     }).fail(function(response){
       console.log('FAIL');
     });
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
   $('.comments button[name="reply"]').click(function(event){
     event.preventDefault();
-    commentId = $(this).parent().data().id;
+    commentId = $(this).parent().parent().parent().data().id;
     $('#reply[data-id="' + commentId + '"').slideDown();
   })
 
@@ -25,7 +25,7 @@ $(document).ready(function(){
     event.preventDefault();
     var response = confirm("Are you sure you want to delete this comment?")
     if (response){
-      commentId = $(this).parent().data().delete;
+      commentId = $(this).parent().parent().parent().data().delete;
       $.ajax({
         url: '/comments/'+commentId,
         type: 'DELETE',
@@ -49,22 +49,21 @@ $(document).ready(function(){
       dataType: 'html'
     }).done(function(response){
       $('form#newreplies').slideUp()
-      $('#reply[data-id="' + commentId + '"').append('<li id="level2">'+response+'</li>')
+      $('#reply[data-id="' + commentId + '"').append('<li id="level2">'+response+'</li>').show('slow')
     }).fail(function(response){
       console.log('FAIL');
     });
   })
 
-  $('#dog-details button[name="message"]').click(function(event){
+  $('.dog-details button[name="message"]').click(function(event){
     event.preventDefault();
-    console.log('Hello!')
     $('#overlay').css( "display", "inherit");
-    $('#profile .message_comp').css( "display", "inherit");
+    $('.profile .message_comp').css( "display", "inherit");
   })
 
   $('#overlay').click(function(event){
     $('#overlay').css( "display", "none");
-    $('#profile .message_comp').css( "display", "none");
+    $('.profile .message_comp').css( "display", "none");
   })
 
 })

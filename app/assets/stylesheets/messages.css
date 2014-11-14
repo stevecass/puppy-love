@@ -1,71 +1,82 @@
-
-#inbox {
-  float: left;
-  margin: 0 0 0 5%;
-  padding: 2% 5% 2% 2%;
-  border: 1px solid gray;
-  width: 30%;
-  font-size: 2em;
-  background-color: #E67AAA;
-  text-align: center;
-  overflow-y: auto;
-  height: 500px;
-}
-
- #outbox {
-  float: right;
-  margin: 0 5% 0 0;
-  padding: 2% 5% 2% 2%;
-  border: 1px solid gray;
-  width: 30%;
-  font-size: 2em;
-  background-color: #E67AAA;
-  text-align: center;
-  overflow-y: auto;
-  height: 500px;
- }
-
-#send_message_button {
-  border: 1px solid gray;
-  float: right;
-  margin-right: 5%;
-}
-
-#sent_message {
-  font-size: .5em;
-  border: .25em dotted #7AE6B6;
-  margin: 2%;
-  padding: 2%;
-  background-color: #E4F5F4;
-  border-radius: 13em/3em;
+.message {
   width: 100%;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: #717171;
+  padding-top: .5em;
+  padding-bottom: .5em;
 }
 
-#received_message {
-  font-size: .5em;
-  border: .25em dotted #7AE6B6;
-  margin: 2%;
-  padding: 2%;
-  background-color: #E4F5F4;
-  border-radius: 13em/3em;
-  width: 100%;
+.messages {
+  width: 800px;
+  height: 400px;
+  margin: 5% auto;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 8px black;
+  padding: 1em;
+  overflow: scroll;
 }
 
-.message_comp {
-  font-size: 2em;
-  font-family: sans-serif;
+#message-content{
+  font-size: .75em;
+  padding: .5em;
 }
 
-.specific_msg {
-  border: 1px solid gray;
-  text-align: center;
-  padding: 5%;
-  background-color: #E4F5F4;
+.messages .message_comp{
+  display: none;
+  position:fixed;
+  left: 50%;
+  top: 50%;
+  margin-top: -150px;
+  margin-left: -125px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 0 8px black;
+  width: 300px;
+  height: 300px;
+  z-index: 3;
   font-size: 1em;
-  overflow-y: auto;
-  height: 100px;
 }
 
-.specific_msg p {
-  font-size: 1.5em;
+.button-blue {
+  font-weight: normal;
+  line-height: 1.5rem;
+  min-height: 1.5rem;
+  padding: 0 0.25rem;
+  float: right;
+}
+
+ul.tabs{
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+ul.tabs li{
+  background: none;
+  color: #222;
+  display: inline-block;
+  padding: 10px 15px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  cursor: pointer;
+}
+
+ul.tabs li.current{
+  background: #fcc1d2;
+  color: #222;
+}
+
+.tab-content{
+  display: none;
+  background: #fcc1d2;
+  padding: 15px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.tab-content.current{
+  display: inherit;
 }
