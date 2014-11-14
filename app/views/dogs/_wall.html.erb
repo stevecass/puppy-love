@@ -1,4 +1,4 @@
-<h3><%= @dog.name %>'s wall</h3>
+<div class="dog-header"><b><%= @dog.name %>'s wall</b></div>
 
 <ul class="comments">
 
@@ -23,15 +23,14 @@
 				  <input type="hidden" name ="comment[commentable_id]" value="<%=comment.id%>" required>
 				  <input type="hidden" name ="comment[commentable_type]" value="Comment" required>
 				  <label for="comment"></label>
-				  <input type="text" class="input half-width" name ="comment[content]" placeholder="Write a reply!" required>
-					<input type="submit" class="button button-small button-blue" value="Reply!">
+				  <input type="text" name ="comment[content]" placeholder="Write a reply!" required>
+					<input type="submit" class="button button-blue" value="Reply">
 				</li>
 			</form>
 		</div>
 
 
 	<% end %>
-
 <br>
 <form id="newcomments" action="/comments" method="post">
   <input type="hidden" name ="comment[author_id]" value="<%= Dog.find_by(owner_id: session[:current_user]).id %>" required>
@@ -39,6 +38,6 @@
   <input type="hidden" name ="comment[commentable_type]" value="Dog" required>
   <label for="comment"></label>
   <input type="text" class="input half-width" name ="comment[content]" placeholder="Write on <%=@dog.name%>'s wall!" required>
-<input type="submit" class="button button-small button-blue" value="Comment!">
+<input type="submit" class="button button-blue" value="Comment!">
 </form>
 </ul>
