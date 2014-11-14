@@ -1,11 +1,15 @@
-<div id='content'>
-  <h1><%= "#{@dog.name}'s Messages" %></h1>
-  <div id='inbox'>
-  Inbox
+<div class='messages'>
+	<ul class="tabs">
+			<li class="tab-link current" data-tab="tab-1">Inbox</li>
+			<li class="tab-link" data-tab="tab-2">Outbox</li>
+			<!-- <li class="tab-link" data-tab="tab-3">Conversations</li> -->
+	</ul>
+  <div id="tab-1" class="tab-content current">
     <%= render 'partials/received_messages' %>
   </div>
-  <div id='outbox'>
-  Sent
+  <div id="tab-2" class="tab-content">
     <%= render 'partials/sent_messages' %>
   </div>
+
+  <%= render '/messages/new' %>
 </div>
