@@ -950,6 +950,7 @@ a:hover {
 
 .button {
   border-radius: 0.25rem;
+  color: white;
   transition-duration: .2s;
   transition-timing-function: ease;
   transition-property: box-shadow , background-color;

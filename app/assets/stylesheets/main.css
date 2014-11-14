@@ -1,12 +1,10 @@
 nav{
-  padding: 15px 10px;
+  padding: 5px 10px;
 }
 body,html{
   height: 100%;
-}
-#content{
   width:100%;
-  min-height:90%;
+  min-height:100%;
   background-image: url('/images/Pugs.jpg');
   background-repeat: no-repeat;
   background-size: cover;
@@ -25,13 +23,12 @@ footer{
 #dog-wall{
   margin-left: 20%;
 }
-/*#profile{
-  position: fixed;
-  top: 10%;
-  background-color: #CFB2D6;
-  height: 80%;
+.profile{
+  width: 640px;
+  margin: 0 auto;
+  background-color: white;
 }
-.profile-bar{
+/*.profile-bar{
   text-align: center;
   position: fixed;
   left: 0;
