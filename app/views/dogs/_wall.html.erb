@@ -23,7 +23,7 @@
 				  <input type="hidden" name ="comment[commentable_id]" value="<%=comment.id%>" required>
 				  <input type="hidden" name ="comment[commentable_type]" value="Comment" required>
 				  <label for="comment"></label>
-				  <input type="text" name ="comment[content]" placeholder="Write a reply!" required>
+				  <input type="text" class="input" name ="comment[content]" placeholder="Write a reply!" required>
 					<input type="submit" class="button button-blue" value="Reply">
 				</li>
 			</form>
@@ -37,7 +37,7 @@
   <input type="hidden" name ="comment[commentable_id]" value="<%= @dog.id %>" required>
   <input type="hidden" name ="comment[commentable_type]" value="Dog" required>
   <label for="comment"></label>
-  <input type="text" class="input half-width" name ="comment[content]" placeholder="Write on <%=@dog.name%>'s wall!" required>
+  <input type="text" class="input" name ="comment[content]" placeholder="Write on <%=@dog.name%>'s wall!" required>
 <input type="submit" class="button button-blue" value="Comment!">
 </form>
 </ul>
