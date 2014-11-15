@@ -48,14 +48,4 @@ describe "#new" do
       expect(assigns(:message)).to eq(message)
     end
   end
-
-  describe "#destroy" do
-    it "Should delete a message" do
-      message_one = Message.create(sender_id: 1, recipient_id: 2, content: "Hi you.")
-      message_two = Message.create(sender_id: 2, recipient_id: 1, content: "Hello to you too.")
-      delete :destroy, id: message_two.id
-      expect(response).to redirect_to '/messages'
-      expect(Message.last.id).to eq(message_one.id)
-    end
-  end
 end
