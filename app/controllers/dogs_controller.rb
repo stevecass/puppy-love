@@ -52,10 +52,21 @@ class DogsController < ApplicationController
 
   def search
     @dogs= Dog.all
-    params[:query].each do |property, val|
-      if val.length != 0
-        @dogs = @dogs.where("#{property} = ? ", val)
-      end
+
+    if params[:query][:gender] != ""
+      @dogs = @dogs.where(gender: params[:query][:gender])
+    end
+
+    if params[:query][:breed] != ""
+      @dogs = @dogs.where(breed: params[:query][:breed])
+    end
+
+    if params[:query][:size] != ""
+      @dogs = @dogs.where(size: params[:query][:size])
+    end
+
+    if params[:query][:location] != ""
+      @dogs = @dogs.where(location: params[:query][:location])
     end
 
     render 'index'
