@@ -33,7 +33,6 @@ $(document).ready(function(){
 
 	$('.message button[name="reply"]').click(function(event){
 	  event.preventDefault();
-	  debugger
 	  recipientId = $(this).attr('data-recepient');
 	  name = $(this).parent().find('a').html();
 	  $('input[name="message[recipient_id]"]').val(recipientId)
