@@ -1,0 +1,23 @@
+    <% if flash[:signup_error] %>
+      <div id="signuperror" >
+        <p><%= flash[:signup_error] %></p>
+      </div>
+    <% end %>
+
+
+<div id="signupmodal">
+
+
+  <%= form_tag(owners_path, method: "post", class: "form-stacked form") do %>
+
+    <%= label_tag(:email, "Email") %>
+    <%= email_field_tag :email, nil, required: :true, class: "input field-small" %>
+    
+    <%= label_tag(:password, "Password") %>
+    <%= password_field_tag :password, nil, required: :true, class: "input field-small" %>
+    
+    <%= label_tag(:password_confirm, "Confirm Password") %>
+    <%= password_field_tag :password_confirm, nil, required: :true, class: "input field-small" %>
+    <%= submit_tag("Sign up!", class:"button bg-pink ") %>
+  <% end %>
+</div>

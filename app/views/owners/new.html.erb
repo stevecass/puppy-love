@@ -1,0 +1,10 @@
+<div id="content">
+Sign Up For An Account:<br>
+<%= form_for @owner do |f| %>
+  <%= f.text_field :email %>
+  <%= f.text_field :password %>
+  <%= f.text_field :gender %>
+  <%= f.text_field :birthday %>
+  <%= f.submit %>
+<% end %>
+</div>

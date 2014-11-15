@@ -1,0 +1,14 @@
+<nav class="bg-pink">
+<div class='center nav-dark nav-table nav-small'>
+  	<% if session[:current_user] && session[:current_dog] %>
+      <%= link_to "Home",  {controller: "dogs", action: "show", :id => session[:current_dog]}, class: "button" %>
+  		<%= link_to "Browse",  {controller: "dogs", action: "index"}, class: "button" %>
+      <%= link_to "Inbox",  {controller: "messages", action: "index"}, class: "button" %>
+      <%= link_to "Logout",  logout_path, class: "button " %>
+  	<%else %>
+	    <%= link_to "Home", root_path, class: " button", id: "test" %>
+      <%= link_to "Login", login_path, class: " button", id: "login" %>
+      <%= link_to "Sign Up",  new_owner_path, class: " button ", id: "signup" %>
+	  <% end %>
+</div>
+</nav>

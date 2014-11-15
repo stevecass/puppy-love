@@ -1,0 +1,22 @@
+<div id="content">
+<h1>From: <%=@message.sender.name %></h1>
+<div class='specific_msg'>
+<p id='message_content'><%= @message.content %></p>
+<br>
+
+
+<form id="newmessage" action="/messages" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="hidden" name ="message[recipient_id]" value="<%=@message.sender.id %>" required>
+  <label for="message[content]">Reply:</label>
+  <input type="text" cols="26" rows="7" name="message[content]" class= "inline mb1" required>
+
+  <input type="submit" class="button button-small bg-pink">
+</form>
+
+<%= form_for @message, url: {action: "destroy"}, method: 'delete'  do |f| %>
+  <%= f.submit 'Delete This Message', class: 'button button-small bg-red'  %>
+<% end %>
+
+</div>
+</div>

@@ -7,8 +7,9 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+	<div id="overlay">
+  </div>
+  <%= render 'partials/nav_bar' %>
+  <%= yield %>
 </body>
 </html>

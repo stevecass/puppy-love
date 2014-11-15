@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
-
+  get 'login' => 'welcome#login' 
+  post 'auth' => 'welcome#auth'
+  get 'logout' => 'welcome#logout'
+  get 'dogs/search' => 'dogs#search'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -13,6 +16,10 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+      resources :dogs
+      resources :messages
+      resources :comments
+      resources :owners
 
   # Example resource route with options:
   #   resources :products do

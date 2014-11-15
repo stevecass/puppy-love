@@ -1,0 +1,14 @@
+<% if @dog.sent_messages.count > 0 %>
+  <% @dog.sent_messages.order(created_at: :desc).each do |message| %>
+    <div class='message'>
+	    To <b><a href="/dogs/<%=message.recipient.id%>"><%= message.recipient.name %></a></b> sent <%=message.created_at.localtime.strftime("%m/%d/%Y %H:%M")%>
+	    <button type="button" class="button button-small button-blue" name="delete" id="<%=message.id%>">Delete</button>
+	    <br>
+	    <div id='message-content'>
+	    	<%= message.content.gsub(/\r\n?/, '<br/>').html_safe %>
+	    </div>
+    </div>
+  <% end %>
+<% else %>
+  <p>You have not sent a message.</p>
+<% end %>

@@ -1,0 +1,17 @@
+<div data-dog-id=<%=dog.id %> id="profile-content-<%=dog.id %>">
+  <%= form_tag(dog_path(dog), method: "get") do %>
+    <%= submit_tag("Visit " + dog.name, class:"button bg-pink ") %>
+  <% end %>
+  <div id="profile-img">
+  	<img src="<%= dog.photo_url %> " alt="pic">
+  </div>
+  <div id="description">
+  	<p><%= dog.tagline %></p>
+    <p><%= dog.gender %> | <%= dog.birthday %></p>
+    <p>Size:  <%= dog.size %></p>
+    <p>Breed: <%= dog.breed %></p>
+    <p>Lives in: <%= dog.location %><br></p>
+  </div>
+</div>
+  
+

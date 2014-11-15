@@ -1,0 +1,16 @@
+  <% if flash[:login_error] %>
+    <div id="loginerror">
+      <p><%= flash[:login_error] %></p>
+    </div>
+  <% end %>
+
+<div id="loginmodal" >
+  <%= form_tag(auth_path, method: "post",class: "form-stacked form") do %>
+    <%= label_tag(:email, "Email") %>
+    <%= email_field_tag :email, nil, required: :true, class: "input field-small" %>
+
+    <%= label_tag(:password, "Password") %>
+    <%= password_field_tag :password, nil, required: :true, class: "input field-small" %>
+    <%= submit_tag("Log in!", class:"button bg-pink ") %>
+  <% end %>
+</div>

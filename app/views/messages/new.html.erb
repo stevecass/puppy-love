@@ -1,0 +1,19 @@
+
+<div id='content'>
+  <div class='message_comp'>
+Compose your message:
+<%= form_for @message, html: {class: 'form'}, url: {action: "create"}  do |f| %>
+  <div class="clearfix">
+  <div class="col col-6">
+  <%= f.label :recipient_id, 'Send To:' %>
+  <%= f.text_field :recipient_id, class: "block mb1 input field-small" %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content, size: "26x7", class: "block mb1" %>
+
+  <%= f.submit class: 'button button-small bg-pink'%>
+<% end %>
+  </div>
+  </div>
+  </div>
+</div>

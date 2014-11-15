@@ -1,0 +1,40 @@
+<div id="content">
+
+<%= form_for @dog, html:{class: "form"} do |f| %>
+    <div class="clearfix">
+    <div class="col col-6">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "block mb1 input field-small", required: true %>
+      
+      <%= f.label :birthday %>
+      <%= f.date_field :birthday, class: "block mb1" %>
+
+      <%= f.label :breed ,class: "block" %>
+      <%= f.text_field :breed, class: "block mb1 input field-small" %>
+
+      <%= f.label :location %>
+      <%= f.text_field :location, class: "block mb1 input field-small" %>
+
+      <%= f.label :gender %>
+      <%= select(:dog, :gender, options_for_select([['Male', 'Male'], ['Female', 'Female']]),{},{ class: "block mb1 field-small"}) %>
+
+      <%= f.label :size %>
+      <%= select(:dog, :size, options_for_select([['Small', 'Small'], ['Medium', "Medium"], ['Large','Large']]),{}, {class: "block mb1 field-small"}) %>
+
+
+    </div>
+    <div class="col col-6">
+
+      <%= f.label :photo_url %>
+      <%= f.text_field :photo_url, class: "block mb1 input field-small" %>
+
+      <%= f.label :bio %>
+      <%= f.text_area :bio, size: "26x7", class: "block mb1" %>
+
+      <%= f.label :tagline %>
+      <%= f.text_field :tagline, class: "block mb1 input field-small" %>
+    <%= f.submit "Create a new Dog!", class: 'button button-small bg-pink right mt3 mr2' %>
+    </div>
+  </div>
+<% end %>
+</div>

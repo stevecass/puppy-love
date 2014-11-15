@@ -1,0 +1,33 @@
+<div class="profile">
+
+  <div class="dog-details">
+    <div class="dog-header"><b><%= @dog.name %></b> - "<%= @dog.tagline %>"</div>
+    <div class="detail-left">
+      <img src="<%= @dog.photo_url %>" alt="">
+    </div>
+    <div class="detail-right">
+      <p>Gender: <%= @dog.gender%></p>
+      <p>DOB: <%= @dog.birthday %></p>
+      <p>Size: <%= @dog.size%></p>
+      <p>Breed: <%= @dog.breed.capitalize%></p>
+      <p>Location: <%= @dog.location.upcase %></p>
+      <% if @dog.id != session[:current_dog] %>
+        <button type="button" class="button button-small button-pink" name="message" data-recepient="<%=@dog.id%>">Message</button>
+      <% elsif @dog.id == session[:current_dog] %>
+        <form action="/dogs/<%=@dog.id%>/edit">
+          <button type="submit" class="button button-small button-pink" name="edit" data-recepient="<%=@dog.id%>">Edit Profile</button>
+        </form>
+      <% end %>
+    </div>
+    <div class="bio">
+      <h3><%= @dog.name %>'s bio:</h3>
+      <%= @dog.bio.gsub(/\r\n?/, '<br/>').html_safe %>
+    </div>
+  </div>
+
+  <div class="dog-wall">
+    <%= render 'wall' %>
+  </div>
+
+  <%= render '/messages/new' %>
+</div>

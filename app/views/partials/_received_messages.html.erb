@@ -1,0 +1,14 @@
+<% if @dog.received_messages.count > 0 %>
+  <% @dog.received_messages.order(created_at: :desc).each do |message| %>
+    <div class='message'>
+	    From <b><a href="/dogs/<%=message.sender.id%>"><%= message.sender.name %></a></b> received <%=message.created_at.localtime.strftime("%m/%d/%Y %H:%M")%>
+	    <button type="button" class="button button-small button-blue" name="reply" data-recepient="<%=message.sender.id%>">Reply</button>
+	    <br>
+	    <div id='message-content'>
+	    	<%= message.content.gsub(/\r\n?/, '<br/>').html_safe %>
+	    </div>
+    </div>
+  <% end %>
+<% else %>
+  <p>You have 0 messages in your inbox.</p>
+<% end %>
